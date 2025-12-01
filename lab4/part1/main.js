@@ -25,6 +25,15 @@ function generateStory() {
   newStory = newStory.replaceAll(":insertx:", xItem);
   newStory = newStory.replace(":inserty:", yItem);
   newStory = newStory.replace(":insertz:", zItem);
+
+  if (customName.value !== "") {
+  const name = customName.value;
+}
+
+if (document.getElementById("uk").checked) {
+  const weight = Math.round(300);
+  const temperature = Math.round(94);
+}
 }
 
   // TODO: replace "" with the correct expression
