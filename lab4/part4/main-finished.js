@@ -27,11 +27,13 @@ class shape {
     }
 }
 
-class Ball extends shapes {
+class Ball extends shape {
   constructor(x, y, velX, velY, color, size) {
     super(x, y, velX, velY);
     this.color = color;
     this.size = size;
+    this.exists = true;
+
   }
 
   draw() {
@@ -143,6 +145,8 @@ collisionDetect(){
   }
 }
 const balls = [];
+let count = 0;
+const para = document.querySelector("p");
 
 while (balls.length < 25) {
   const size = random(10, 20);
@@ -156,19 +160,27 @@ while (balls.length < 25) {
     randomRGB(),
     size
   );
-
   balls.push(ball);
+  count++;
+  para.textContent = 'Ball counts' + count;
 }
+
+const evilBall = new EvilCircle(random(0, width), random(0, height));
 
 function loop() {
   ctx.fillStyle = "rgba(0, 0, 0, 0.25)";
   ctx.fillRect(0, 0, width, height);
 
   for (const ball of balls) {
+    if (ball.exists){
     ball.draw();
     ball.update();
     ball.collisionDetect();
   }
+  }
+  evilBall.draw();
+  evilBall.checkBounds();
+  evilBall.collisionDetect();
 
   requestAnimationFrame(loop);
 }
