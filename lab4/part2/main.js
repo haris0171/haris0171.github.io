@@ -15,7 +15,7 @@ const images = [
 ];
 
 //base URL
-const baseURL = 'https://haris0171.github.io/lab4/part2/images'
+const baseURL = 'https://haris0171.github.io/lab4/part2/images/';
 
 //loops through the array of images starting at 1
 for (let i = 1; i <= images.length; i++) {
@@ -31,3 +31,18 @@ for (let i = 1; i <= images.length; i++) {
     displayedImage.src = e.target.src;
     displayedImage.alt = e.target.alt;
 }
+// handler that will lighten/darken the button
+btn.addEventListener("click", () => {
+    const btnClass = btn.getAttribute("class");
+
+    if (btnClass === "dark") {
+        btn.setAttribute("class", "light");
+        btn.textContent = "Lighten";
+        overlay.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+    } 
+    else {
+        btn.setAttribute("class", "dark");
+        btn.textContent = "Darken";
+        overlay.style.backgroundColor = "rgba(0, 0, 0, 0)";
+    }
+});
