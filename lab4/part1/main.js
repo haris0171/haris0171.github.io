@@ -25,8 +25,13 @@ const insertZ = ['spontaneously combusted, melted into a puddle on the sidewalk,
         newStory = newStory.replaceAll(':insertx:',xItem);
         newStory = newStory.replaceAll(':inserty:',yItem);
         newStory = newStory.replaceAll(':insertz:',zItem);
+
+//If user enters custom name it will replace 'Bob' with custom name
         
-    
+        if (customName.value !== ''){
+        const name = customName.value;
+        newStory = newStory.replaceAll('Bob',name);
+        }
   return storyText;
 }
 
