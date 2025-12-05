@@ -1,5 +1,3 @@
-// Complete variable definitions and random functions
-
 const customName = document.getElementById("custom-name");
 const generateBtn = document.querySelector(".generate");
 const story = document.querySelector(".story");
@@ -9,10 +7,13 @@ function randomValueFromArray(array) {
   return array[random];
 }
 
-const storyText = ['It was 94 Fahrenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day.']
-const insertX = ['Willy the Goblin, Big Daddy, Father Christmas']
-const insertY= ['the soup kitchen, Disneyland, the White House']
-const insertZ = ['spontaneously combusted, melted into a puddle on the sidewalk, turned into a slug and slithered away']
+const storyText = 'It was 94 Fahrenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day.'
+const insertX = ['Willy the Goblin', 'Big Daddy', 'Father Christmas']
+const insertY= ['the soup kitchen', 'Disneyland', 'the White House']
+const insertZ = ['spontaneously combusted', 'melted into a puddle on the sidewalk', 'turned into a slug and slithered away']
+
+// Event Handler
+generateBtn.addEventListener('click', result );
 
 // Completed result function
     function result(){
@@ -32,24 +33,18 @@ const insertZ = ['spontaneously combusted, melted into a puddle on the sidewalk,
         const name = customName.value;
         newStory = newStory.replaceAll('Bob',name);
         }
-  return storyText;
+
+        if (document.getElementById("uk").checked) {
+//lbs to stone conversion
+        const weight = `${Math.round(300/14)} stones`;
+//convert farenheight to centigrade
+        const temperature = `${Math.round((94-32)*(5/9))} celsius`;
+        newStory = newStory.replaceAll('94 fahrenheit', temperature);
+        newStory = newStory.replaceAll('300 pounds', weight);
 }
 
-// Event listener and partial generate function definition
-
-generateBtn.addEventListener("click", generateStory);
-
-function generateStory() {
-  if (customName.value !== "") {
-    const name = customName.value;
-  }
-
-  if (document.getElementById("uk").checked) {
-    const weight = Math.round(300);
-    const temperature = Math.round(94);
-  }
-
-  // TODO: replace "" with the correct expression
-  story.textContent = "";
-  story.style.visibility = "visible";
+//
+        story.textContent = newStory;
+        story.style.visibility = 'visible';
 }
+    
