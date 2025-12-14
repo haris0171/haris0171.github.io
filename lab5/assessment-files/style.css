@@ -51,7 +51,7 @@ p, li, table {
 
 /* || header layout */
 
-div[class="nav"], article, footer, .secondary {
+header, nav, article, footer, .secondary {
   background-color: white;
 }
 
@@ -63,7 +63,7 @@ article {
   margin-right: 10px;
 }
 
-nav[class="nav"] {
+nav {
   height: 50px;
   background-color: white;
   display: flex;
@@ -71,20 +71,20 @@ nav[class="nav"] {
   margin-bottom: 10px;
 }
 
-nav[class="nav"] ul {
+nav ul {
   padding: 0;
   list-style-type: none;
   flex: 2;
   display: flex;
 }
 
-nav[class="nav"] li {
+nav li {
   display: inline;
   text-align: center;
   flex: 1;
 }
 
-nav[class="nav"] a {
+nav a {
   display: inline-block;
   font-size: 2rem;
   text-transform: uppercase;
